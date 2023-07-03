@@ -1,0 +1,383 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+         
+         *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif ;
+}
+header{
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+}
+header .brand{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+header .navigation{
+    position: relative;
+}
+header .navigation .navigation-items a{
+    position:relative;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0%;
+    left: 0;
+    transition: 0.3 ease;
+}
+header .navigation .navigation-items a:hover:before{
+    width: 100%;
+}
+section{
+    padding: 100px 200px;
+}
+.home{
+    width: 100%;
+    min-Height: 100vh;
+    background: #2696E9;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home before{
+    z-index: 777;
+    content: '';
+    position: relative;
+    background: rgba(3,96,251,0.3);
+    width: 120%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.home .content{
+    width: 70%;
+    z-index: 888;
+    color: #fff;
+    margin-top: 50px;
+    display: none;
+}
+.home .content.active{
+    display: block;
+}
+.home .content h1{
+    font-size: 4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+    transition: 0.5s;
+}
+.home .content h1:hover{
+    -webkit-text-stroke: 2px #ffff;
+    color: transparent;
+}
+.home .content h1 span{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.home .content p{
+    margin-bottom: 65px;  
+}
+.home .content a{
+    background:  rgba(0,0,0,0.5);
+    padding: 15px 35px;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 1px;
+}
+.home video{
+    z-index: 000;
+    position: fixed;
+    top: o;
+    left: o;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+}
+.home .media-icons{
+    z-index: 888;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3 ease;
+}
+.home .media-icons a{
+    color: #fff;
+    font-size: 1em;
+    transition: 0.5s ease;  
+}
+.home .media-icons a:not(:last-child){
+    margin-bottom: 20px;    
+}
+.home .media-icons a:hover{
+    transition: scale(1.3);
+}
+.slider-navigation{
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+}
+.slider-navigation .nav-btn{
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255,255,255,0.5);
+    transition: 0.3s ease;
+}
+.slider-navigation .nav-btn:not(:last-child){
+    margin-right: 20px;
+}
+.slider-navigation .nav-btn:hover{
+    transform: scale(1.3);
+}
+.slider-navigation .nav-btn.active{
+    background: #2696E9;
+}
+.video-slide{
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0 at 0 50%);
+}
+.video-slide.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 2s ease;
+    transition-property:clip-path;
+}
+@media (max-width:1040px){
+    header{
+        padding: 12px 20px;
+    }
+    section{
+        padding: 100px 20px;
+    }
+    .home .media-icons{
+        right:15px;
+    }
+    header.navigation{
+        display: none;
+    }
+    header.navigation.active{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(1,1,1,0.5);
+    }
+    header.navigation.navigation-items a{
+        color: #222;
+        font-size: 1.2em;
+        margin: 20px;
+    }
+    header.navigation.navigation-items a::before{
+        background: #222;
+        height: 5px;
+
+    }
+    header.navigation.active.navigation-items{
+        background: #fff;
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 5px 25px rgba(1 1 1 / 20%);
+    }
+    .menu-btn{
+        background: url(menu.png)no-repeat;
+        background-size: 30px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    .menu-btn.active{
+    z-index: 999;
+    background: url(close.png)no-repeat;
+    background-size: 25px;
+    background-position: center;
+    transition: 0.3s ease;
+    }
+}
+
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="#" class="brand">Mayank <span>Chadha</span></a>
+            <div class="menu-btn"></div>
+            <div class="navigation">
+                <div class="navigation-items">
+                    <a href="file:///C:/Users/DELL/Documents/Website/photo.html">HOME</a>
+                    <a href="#">GALLERY</a>
+                    <a href="#">EXPLORE</a>
+                    <a href="#">CONTACT</a>
+                    <a href="#">ABOUT</a>
+                </div>
+            </div>
+        </header>
+        <section class="home">
+            <video class="video-slide active" src="C:\Users\DELL\Pictures\website\wel.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="C:\Users\DELL\Pictures\website\new.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="C:\Users\DELL\Pictures\website\gallery.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="C:\Users\DELL\Pictures\website\about.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="C:\Users\DELL\Pictures\website\welcome.mp4" autoplay muted loop></video>
+            <div class="content active">
+                <h1>Welcome<br></h1>
+                <p>Welcome to our photography website, where we celebrate the art and beauty of capturing moments through the lens. 
+                    Our passion for photography is evident in every image we create, as we strive to convey emotions, tell stories, 
+                    and inspire others through our visual storytelling.At our core, we believe that photography is more than just taking pictures; it is a powerful medium that allows 
+                    us to freeze time, preserve memories, and evoke emotions. We are dedicated to honing our craft and continually 
+                    pushing the boundaries of our creativity to deliver captivating and  meaningful photographs.Our aim is to capture 
+                    not only the physical aspects of a subject but also the intangible essence that makes it unique. We believe that 
+                    every photograph has a story to tell, and we are passionate about uncovering and sharing those stories with the 
+                    world.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="content">
+                <h1>Photography<br></h1>
+                <p> Photography is a powerful form of visual expression that allows us to capture and share moments, stories, and 
+                    emotions. It is an art form that continues to evolve, adapting to new technologies and creative possibilities. 
+                    Whether you are a professional photographer or an amateur enthusiast, photography offers endless opportunities 
+                    for exploration, self-expression, and connection with others.Photography is a powerful medium that allows us to 
+                    capture and create visual representations of the world around us. It combines technical skills with creative 
+                    vision, enabling us to freeze moments, convey emotions, tell stories, and express our artistic selves. Whether as 
+                    a hobby, profession, or means of personal expression, photography continues to inspire, inform, and captivate 
+                    audiences worldwide.So grab your camera, step into the world, and start 
+                    capturing the beauty that surrounds you.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="content">
+                <h1>GALLERY<br></h1>
+                <p>Gallery, a space where images come alive, emotions are stirred, and stories unfold. Step into a world of 
+                    captivating visuals, where each photograph has been carefully curated to evoke a sense of wonder and inspire 
+                    your imagination.Every photograph on display represents a unique moment frozen in time, captured by our talented 
+                    photographers who possess a keen eye for detail and a deep understanding of their craft. Through their lens, they 
+                    transform ordinary scenes into extraordinary works of art, capturing the essence of a place, person, or event and 
+                    imbuing each image with its own distinct character.We invite you to immerse yourself in the visual tapestry that 
+                    awaits, to explore, to connect, and to discover the transformative power of photography. Step into a realm where 
+                    images speak louder than words and let them transport you to new horizons of imagination and appreciation.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="content">
+                <h1>About us<br></h1>
+                <p>Welcome to Mayank Photography, where we believe that every moment is worth capturing and every photograph has 
+                    a story to tell. We are a team of passionate photographers dedicated to freezing time, preserving memories, and 
+                    creating images that will be cherished for a lifetime.With a deep love for both the art and science of photography, 
+                    we approach every project with enthusiasm, creativity, and a commitment to excellence. We understand the 
+                    significance of the moments we capture, and we strive to encapsulate the emotions, the beauty, and the essence of 
+                    each subject in our images. we specialize in a wide range of genres, including weddings, portraits, events, and 
+                    lifestyle photography. Each project is an opportunity for us to collaborate with our clients, to understand their 
+                    vision, and to create images that surpass their expectations. We pride ourselves on building strong relationships 
+                    with our clients, ensuring a comfortable and enjoyable experience from start to finish.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="content">
+                <h1>Conclusion<br></h1>
+                <p>Photography is a never-ending journey of learning and growth. There is always something new to discover, techniques 
+                    to master, and stories to tell. It is a medium that invites us to see the world with fresh eyes, to appreciate the 
+                    beauty in the ordinary, and to find inspiration in the smallest of details.Whether you are a professional 
+                    photographer, an amateur enthusiast, or someone who simply appreciates the art form, photography has the power to 
+                    move, inspire, and connect us. It allows us to pause, reflect, and see the world in a different light. So pick up 
+                    your camera, explore your surroundings, and capture the moments that speak to your heart. Let photography be your 
+                    medium of creative expression, and let it continue to shape and enrich your life.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="media-icons">
+                <a href="https://www.facebook.com/mayank.chadha.31"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mk_capture_moments/"><i class="fa fa-instagram"></i></a>
+            </div>
+            <div class="slider-navigation">
+                <div class="nav-btn active"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+
+            </div>
+        </section>
+        <script type="text/javascript">
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        menuBtn.addEventListener("click", ()=> {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+        const btn = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+
+
+        var sliderNav = function(manual){
+            btn.forEach((btn) =>{
+                btn.classList.remove("active")    
+            });
+            
+            slides.forEach((slide) =>{
+                slide.classList.remove("active")    
+            });
+
+            contents.forEach((content) =>{
+                content.classList.remove("active")    
+            });
+
+
+            btn[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+        btn.forEach((btn,i)=>{
+            btn.addEventListener("click",()=>{
+                sliderNav(i);
+            });
+        });
+        </script>
+    </body>
+</html>
